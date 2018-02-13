@@ -1,0 +1,45 @@
+<% if user_signed_in? %>
+
+<h1> Voici tous nos Gossips du moment :</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Auteur mystère</th>
+    <th>Rumeur</th>
+    <th>Créé le</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @gossips.each do |gossip| %> 
+
+    <tr>
+      <td><%= gossip.user.username %></td>
+      <td><%= gossip.content %></td>
+      <td><%= gossip.created_at.strftime("%d-%m-%Y") %></td>
+      <td><%= link_to "Voir le gossip", gossip_path(gossip) %></td>
+      <% if current_user == gossip.user %>
+      <td><%= link_to "Editer mon gossip", edit_gossip_path(gossip) %></td>
+      <td> <%= link_to "Supprimer mon gossip", gossip_path(gossip),
+              method: :delete,
+              data: { confirm: 'Etes-vous sûr ?' } %> </td>
+      <% else %><td></td><td></td>
+      <% end %>        
+    </tr>
+  <% end %>
+</table>
+
+<p class = "text-center"> <%= link_to('Un nouveau gossip ?', new_gossip_path, class: "btn btn-success") %> </p> 
+<p class = "text-center"> <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+
+<% else %>
+
+<div class="center jumbotron">
+  <h1>Bienvenue à toi cher Moussaillon !</h1>
+  <h3>Viens voir quels sont les derniers gossips à THP 🎓</h3>
+  <%= link_to "Pour se connecter", new_user_session_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Pour s'enregistrer", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<% end %>
