@@ -2,11 +2,11 @@ class User < ApplicationRecord
 
   has_many :gossips, dependent: :destroy
   
-  # attr_accessor :sign_up_code
-  # validates :sign_up_code,
-    # on: :create,
-    # presence: true,
-    # inclusion: { in: ["GOSSIP2017"] }
+  attr_accessor :sign_up_code
+  validates :sign_up_code,
+    on: :create,
+    presence: true,
+    inclusion: { in: ["THP2018"] }
 
 
 
