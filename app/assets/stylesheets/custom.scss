@@ -12,6 +12,10 @@ body {
   padding-top: 60px;
 }
 
+.alert-notice {
+@extend .alert-info;
+}
+
 section {
   overflow: auto;
 }
