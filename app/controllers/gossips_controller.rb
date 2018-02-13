@@ -41,7 +41,7 @@ class GossipsController < ApplicationController
 	private
  	
  	def gossip_params
-    	params.permit(:anonymous_author, :content)
+    	params.permit(:content)
   	end
 
 end

@@ -1,0 +1,21 @@
+<% if current_user == @gossip.user %>
+
+<h1> Editer mon gossip </h1>
+
+<%= form_tag gossip_path(@gossip), method: :put do %>
+ 
+<p> <%= label_tag 'content', "Votre gossip" %> </p>
+<p> <%= text_area_tag 'content' %> </p>
+ 
+<%= submit_tag "Modifier mon gossip"%>
+
+<% end %>
+
+
+<% else %>
+
+<p> Ce n'est pas votre gossip, petit coquin ! </p>
+
+<% end %>
+
+<p> <%= link_to('Voir tous les gossips', gossips_path) %> </p> 
