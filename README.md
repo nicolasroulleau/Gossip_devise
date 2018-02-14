@@ -9,3 +9,5 @@ Les gossips ne sont accessibles que si tu es login. Pour se login c'est très si
 Tu peux aussi créer ton propre compte pour balancer des vieux ragots sur tes potes. Pour cela utilise le code VIP THP2018.
 
 Have fun !!
+
+Ps: pour les tests, taper en console rspec
